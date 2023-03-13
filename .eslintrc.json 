@@ -21,10 +21,7 @@
     "react/prop-types": 0,
     "arrow-body-style": 0,
     "no-console": [
-      "error",
-      {
-        "allow": ["warn", "error"]
-      }
+      "off"
     ],
     "no-unused-expressions": [
       "error",
