@@ -1,4 +1,7 @@
-import { DefaultTable } from '../components/templates/TablesTemplate';
-export const Table = () => {
-    return <DefaultTable>Our app</DefaultTable>;
-}
+import DefaultTable from "../components/templates/TablesTemplate";
+
+const Table = () => {
+  return <DefaultTable>Our app</DefaultTable>;
+};
+
+export default Table;

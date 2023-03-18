@@ -1,18 +1,17 @@
-import React from 'react';
-import 'reset-css';
-import {Header} from "../molecules/Header";
-import {Footer} from "../molecules/Footer";
-import { Table } from '../molecules/Table';
+import React from "react";
+import "reset-css";
+import Header from "../molecules/Header";
+import Footer from "../molecules/Footer";
+import Table from "../molecules/Table";
 
-
-export const DefaultTable = ({ children }) => {
-    return (
-        <>
-        <Header/>
-        <Table/>
-        <Footer/>
-        </>
-        
-    );
+const DefaultTable = () => {
+  return (
+    <>
+      <Header />
+      <Table />
+      <Footer />
+    </>
+  );
 };
 
+export default DefaultTable;

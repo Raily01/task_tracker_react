@@ -1,9 +1,9 @@
-import React from 'react';
-import 'reset-css';
-import styled, {css} from 'styled-components';
+import React from "react";
+import "reset-css";
+import styled, { css } from "styled-components";
 
 const StyledButt = styled.button(
-({color}) => css`
+  ({ color }) => css`
     label: {label};
     text-align: center;
     font-size: 20px;
@@ -17,14 +17,15 @@ const StyledButt = styled.button(
     display: block;
     position: relative;
     width: 100px;
-    `
+    `,
 );
 
-export const Button = ({ label, onClick = () => {}, disabled, color='aquamarine' }) => {
-    return (
-        <>
-        <StyledButt color={color} onClick={onClick} disabled={disabled}>{label}</StyledButt>
-        </>
-        
-    );
+const Button = ({ label, onClick = () => {}, disabled, color = "aquamarine" }) => {
+  return (
+    <StyledButt color={color} onClick={onClick} disabled={disabled}>
+      {label}
+    </StyledButt>
+  );
 };
+
+export default Button;
