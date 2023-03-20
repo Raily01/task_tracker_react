@@ -9,8 +9,6 @@ const StyledButt = styled.button(
     font-size: 20px;
     background-color: ${color};
     text-align: center;
-    disabled: {disabled};
-    onClick: {onClick};
     margin: 0 auto;
     margin-top: 10px;
     padding: 10px;
@@ -20,9 +18,9 @@ const StyledButt = styled.button(
     `,
 );
 
-const Button = ({ label, onClick = () => {}, disabled, color = "aquamarine" }) => {
+const Button = ({ label, onClick = () => {}, disabled = false, color = "aquamarine" }) => {
   return (
-    <StyledButt color={color} onClick={onClick} disabled={disabled}>
+    <StyledButt color={color}>
       {label}
     </StyledButt>
   );

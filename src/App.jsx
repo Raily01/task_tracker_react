@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/index";
 import Table from "./pages/table";
