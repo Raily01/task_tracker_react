@@ -31,106 +31,58 @@ const Table = () => {
   };
   return (
     <StyledTable>
-      <table>
+      <tbody>
         <tr>
-          <StyledTh>
-            <td>Name</td>
-          </StyledTh>
-          <StyledTh>
-            <td>Description</td>
-          </StyledTh>
-          <StyledTh>
-            <td>Created at</td>
-          </StyledTh>
-          <StyledTh>
-            <td>&nbsp;</td>
-          </StyledTh>
-          <StyledTh>
-            <td>&nbsp;</td>
-          </StyledTh>
-          <StyledTh>
-            <td>&nbsp;</td>
-          </StyledTh>
+          <StyledTh>Name</StyledTh>
+          <StyledTh>Description</StyledTh>
+          <StyledTh>Created at</StyledTh>
+          <StyledTh>&nbsp;</StyledTh>
+          <StyledTh>&nbsp;</StyledTh>
+          <StyledTh>&nbsp;</StyledTh>
         </tr>
         <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
           <StyledTd>
-            <td>My first project</td>
+            <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <td>Its only for testing</td>
+            <Button label="Edit" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <td>about 1 month ago</td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
-            </td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Edit" onClick={test} disabled={false} color="thistle" />
-            </td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
-            </td>
+            <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
         </tr>
         <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
           <StyledTd>
-            <td>My first project</td>
+            <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <td>Its only for testing</td>
+            <Button label="Edit" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <td>about 1 month ago</td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
-            </td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Edit" onClick={test} disabled={false} color="thistle" />
-            </td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
-            </td>
+            <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
         </tr>
         <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
           <StyledTd>
-            <td>My first project</td>
+            <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <td>Its only for testing</td>
+            <Button label="Edit" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <td>about 1 month ago</td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
-            </td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Edit" onClick={test} disabled={false} color="thistle" />
-            </td>
-          </StyledTd>
-          <StyledTd>
-            <td>
-              <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
-            </td>
+            <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
           </StyledTd>
         </tr>
-      </table>
+      </tbody>
     </StyledTable>
   );
 };

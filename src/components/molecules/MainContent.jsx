@@ -20,18 +20,9 @@ const StyledInfo = styled.h3`
 const MainContent = () => {
   return (
     <>
-      <StyledInfo>
-        {" "}
-        <h3>1. i am a girl</h3>
-      </StyledInfo>
-      <StyledInfo>
-        {" "}
-        <h3>2. i like to walk in the rain</h3>
-      </StyledInfo>
-      <StyledInfo>
-        {" "}
-        <h3>3. i sneeze twice from chocolate</h3>
-      </StyledInfo>
+      <StyledInfo>1. i am a girl</StyledInfo>
+      <StyledInfo>2. i like to walk in the rain</StyledInfo>
+      <StyledInfo>3. i sneeze twice from chocolate</StyledInfo>
     </>
   );
 };

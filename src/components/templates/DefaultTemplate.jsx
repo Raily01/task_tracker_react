@@ -6,6 +6,17 @@ import Footer from "../molecules/Footer";
 import Button from "../atoms/Button";
 import MainContent from "../molecules/MainContent";
 
+const StyledCont = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledSpace = styled.div`
+  flex: 1 0 auto;
+  background-color: pink;
+`;
+
 const StyledTemp = styled.h1`
   display: flex;
   justify-content: center;
@@ -17,13 +28,15 @@ const DefaultTemplate = ({ children }) => {
     console.log("pupupu");
   };
   return (
-    <>
+    <StyledCont>
       <Header />
-      <StyledTemp>{children}</StyledTemp>
-      <MainContent />
-      <Button label="its a button" onClick={test} disabled={false} color="aquamarine" />
+      <StyledSpace>
+        <StyledTemp>{children}</StyledTemp>
+        <MainContent />
+        <Button label="its a button" onClick={test} disabled={false} color="aquamarine" />
+      </StyledSpace>
       <Footer />
-    </>
+    </StyledCont>
   );
 };
 

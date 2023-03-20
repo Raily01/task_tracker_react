@@ -13,7 +13,6 @@ const StyledHeader = styled.header`
   position: sticky;
   color: white;
   text-align: center;
-  margin-top: 5px;
   padding-top: 10px;
   font-size: 40px;
 `;

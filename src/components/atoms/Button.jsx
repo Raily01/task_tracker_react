@@ -18,12 +18,8 @@ const StyledButt = styled.button(
     `,
 );
 
-const Button = ({ label, onClick = () => {}, disabled = false, color = "aquamarine" }) => {
-  return (
-    <StyledButt color={color}>
-      {label}
-    </StyledButt>
-  );
+const Button = ({ label, color = "aquamarine" }) => {
+  return <StyledButt color={color}>{label}</StyledButt>;
 };
 
 export default Button;
