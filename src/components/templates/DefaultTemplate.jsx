@@ -1,15 +1,17 @@
 import React from "react";
 import "reset-css";
 import styled from "styled-components";
-import Header from "../molecules/Header";
-import Footer from "../molecules/Footer";
+import Header from "../molecules/Header/Header";
+import Footer from "../molecules/Footer/Footer";
 import Button from "../atoms/Button";
-import MainContent from "../molecules/MainContent";
+import MainContent from "../molecules/MainContent/MainContent";
 
 const StyledCont = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
 
 const StyledSpace = styled.div`

@@ -4,7 +4,6 @@ import styled, { css } from "styled-components";
 
 const StyledButt = styled.button(
   ({ color }) => css`
-    label: {label};
     text-align: center;
     font-size: 20px;
     background-color: ${color};

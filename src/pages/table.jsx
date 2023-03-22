@@ -1,7 +1,13 @@
 import DefaultTable from "../components/templates/TablesTemplate";
+import Table from "../components/molecules/Table/Table";
 
-const Table = () => {
-  return <DefaultTable>Our app</DefaultTable>;
+const Tablepage = () => {
+  return (
+    <DefaultTable>
+      OUR APP
+      <Table />
+    </DefaultTable>
+  );
 };
 
-export default Table;
+export default Tablepage;

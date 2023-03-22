@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import "reset-css";
-import Button from "../atoms/Button";
+import Button from "../../atoms/Button";
 
 const StyledTable = styled.table`
   top: 0;

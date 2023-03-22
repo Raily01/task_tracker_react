@@ -8,6 +8,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   height: 2.5rem;
   background: grey;
+  padding: 12px;
 `;
 
 const Footer = () => <StyledFooter>© 2023 Shaykhulova Railya</StyledFooter>;

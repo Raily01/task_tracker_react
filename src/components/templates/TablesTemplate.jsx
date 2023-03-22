@@ -1,8 +1,8 @@
 import React from "react";
 import "reset-css";
-import Header from "../molecules/Header";
-import Footer from "../molecules/Footer";
-import Table from "../molecules/Table";
+import Header from "../molecules/Header/Header";
+import Footer from "../molecules/Footer/Footer";
+import Table from "../molecules/Table/Table";
 
 const DefaultTable = () => {
   return (
