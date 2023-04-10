@@ -26,6 +26,7 @@ const StyledTemp = styled.h1`
   margin: 10px;
 `;
 const DefaultTemplate = ({ children }) => {
+  // const[showScrollButton, setShowScrollButton] = useState(false);
   const test = () => {
     console.log("pupupu");
   };

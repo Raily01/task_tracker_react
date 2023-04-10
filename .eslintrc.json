@@ -29,5 +29,12 @@
         "allowTernary": true
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["./"]
+      }
+    }
   }
 }

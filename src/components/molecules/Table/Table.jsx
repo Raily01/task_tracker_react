@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "reset-css";
 import Button from "../../atoms/Button";
+import useProjects from "../../../lib/hooks/states/project";
 
 const StyledTable = styled.table`
   top: 0;
@@ -26,8 +28,16 @@ const StyledTd = styled.td`
   text-align: center;
 `;
 const Table = () => {
+  const { projects, loading } = useProjects();
+  console.log(projects, loading);
   const test = () => {
     console.log("pupupu");
+  };
+  const navigate = useNavigate();
+  const routeChange = (id1) => {
+    console.log("aaa");
+    console.log(id1);
+    navigate(`/tasks/${id1}`);
   };
   return (
     <StyledTable>
@@ -45,27 +55,13 @@ const Table = () => {
           <StyledTd>Its only for testing</StyledTd>
           <StyledTd>about 1 month ago</StyledTd>
           <StyledTd>
-            <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
+            <Button label="Tasks" onClick={() => routeChange(1)} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <Button label="Edit" onClick={test} disabled={false} color="thistle" />
+            <Button label="Edit" onClick={test} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
-          </StyledTd>
-        </tr>
-        <tr>
-          <StyledTd>My first project</StyledTd>
-          <StyledTd>Its only for testing</StyledTd>
-          <StyledTd>about 1 month ago</StyledTd>
-          <StyledTd>
-            <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
-          </StyledTd>
-          <StyledTd>
-            <Button label="Edit" onClick={test} disabled={false} color="thistle" />
-          </StyledTd>
-          <StyledTd>
-            <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
+            <Button label="Destroy" onClick={test} color="thistle" />
           </StyledTd>
         </tr>
         <tr>
@@ -73,13 +69,223 @@ const Table = () => {
           <StyledTd>Its only for testing</StyledTd>
           <StyledTd>about 1 month ago</StyledTd>
           <StyledTd>
-            <Button label="Tasks" onClick={test} disabled={false} color="thistle" />
+            <Button label="Tasks" onClick={() => routeChange(2)} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <Button label="Edit" onClick={test} disabled={false} color="thistle" />
+            <Button label="Edit" onClick={test} color="thistle" />
           </StyledTd>
           <StyledTd>
-            <Button label="Destroy" onClick={test} disabled={false} color="thistle" />
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(3)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(4)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(5)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(6)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(7)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(8)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(9)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(10)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(11)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(12)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(13)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(14)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(15)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(16)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
+          </StyledTd>
+        </tr>
+        <tr>
+          <StyledTd>My first project</StyledTd>
+          <StyledTd>Its only for testing</StyledTd>
+          <StyledTd>about 1 month ago</StyledTd>
+          <StyledTd>
+            <Button label="Tasks" onClick={() => routeChange(17)} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Edit" onClick={test} color="thistle" />
+          </StyledTd>
+          <StyledTd>
+            <Button label="Destroy" onClick={test} color="thistle" />
           </StyledTd>
         </tr>
       </tbody>
