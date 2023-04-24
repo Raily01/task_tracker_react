@@ -1,15 +1,12 @@
 import { useParams } from "react-router-dom";
-import Header from "../components/molecules/Header/Header";
-import Footer from "../components/molecules/Footer/Footer";
+import DefaultTemplate from "../components/templates/DefaultTemplate";
 
 const TasksPage = () => {
   const { id } = useParams();
   return (
-    <>
-      <Header />
+    <DefaultTemplate>
       <h1>{id}</h1>
-      <Footer />
-    </>
+    </DefaultTemplate>
   );
 };
 

@@ -25,7 +25,7 @@ const StyledSpace = styled.div`
   flex: 1 0 auto;
 `;
 
-const StyledTemp = styled.h1`
+const StyledTemp = styled.div`
   display: flex;
   justify-content: center;
   font-size: 40px;
@@ -46,9 +46,7 @@ const DefaultTemplate = ({ children }) => {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const onScroll = () => {
-    // console.log("what..");
     if (window.scrollY > 0) {
-      // console.log("scrolled");
       setShowScrollButton(true);
     } else {
       setShowScrollButton(false);
@@ -57,6 +55,9 @@ const DefaultTemplate = ({ children }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
+    return () => {
+      document.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const onClick = () => {
@@ -70,7 +71,6 @@ const DefaultTemplate = ({ children }) => {
       <ButtonWrapperGoBack>
         <Button onClick={() => navigate(-1)} label="Go back" />
       </ButtonWrapperGoBack>
-      <ButtonWrapperGoBack onClick={() => navigate(-1)} />
       {showScrollButton && (
         <ButtonWrapper>
           <Button onClick={onClick} label="Scroll to top" />

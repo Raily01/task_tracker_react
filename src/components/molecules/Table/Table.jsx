@@ -30,13 +30,11 @@ const StyledTd = styled.td`
 `;
 const Table = () => {
   const { projects, loading } = useProjects();
-  // console.log(projects, loading);
   const test = () => {
     console.log("pupupu");
   };
   const navigate = useNavigate();
   const routeChange = (id1) => {
-    console.log(id1);
     navigate(`/tasks/${id1}`);
   };
   return (
@@ -53,12 +51,12 @@ const Table = () => {
               <StyledTh>&nbsp;</StyledTh>
             </tr>
             {projects.map(({ name, description, createdAt, id }) => (
-              <tr>
+              <tr key={id}>
                 <StyledTd>{name}</StyledTd>
                 <StyledTd>{description}</StyledTd>
                 <StyledTd>{new Date(createdAt).toLocaleDateString("RU-ru")}</StyledTd>
                 <StyledTd>
-                  <Button label="Tasks" onClick={() => routeChange({ id })} color="thistle" />
+                  <Button label="Tasks" onClick={() => routeChange(id)} color="thistle" />
                 </StyledTd>
                 <StyledTd>
                   <Button label="Edit" onClick={test} color="thistle" />
@@ -71,7 +69,7 @@ const Table = () => {
           </tbody>
         </StyledTable>
       )}
-      <div>{loading && <h1>LOADING NOW</h1>}</div>
+      {loading && <h1>LOADING NOW</h1>}
     </>
   );
 };
