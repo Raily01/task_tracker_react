@@ -1,16 +1,13 @@
 import React from "react";
 import "reset-css";
-import Header from "../molecules/Header/Header";
-import Footer from "../molecules/Footer/Footer";
+import DefaultTemplate from "./DefaultTemplate";
 import Table from "../molecules/Table/Table";
 
 const DefaultTable = () => {
   return (
-    <>
-      <Header />
+    <DefaultTemplate>
       <Table />
-      <Footer />
-    </>
+    </DefaultTemplate>
   );
 };
 

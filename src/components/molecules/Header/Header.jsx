@@ -8,23 +8,30 @@ const StyledHeader = styled.header`
   top: 0;
   right: 100px;
   width: 100%;
-  height: 50px;
+  height: 60px;
   background: purple;
   position: sticky;
   color: white;
-  text-align: center;
   padding-top: 10px;
   font-size: 40px;
+  z-index: 1000;
 `;
 const StyledLink = styled(Link)`
   color: grey;
   text-align: right;
+  padding: 10px;
+`;
+const StyledName = styled(Link)`
+  color: black;
+  text-align: left;
+  padding: 10px;
 `;
 
 const Header = () => {
   return (
     <StyledHeader>
-      TASK TRACKER <StyledLink to="/table"> Table </StyledLink>
+      <StyledName to="/"> TASK TRACKER </StyledName>
+      <StyledLink to="/table"> Table </StyledLink>
     </StyledHeader>
   );
 };

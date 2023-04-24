@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 const StyledButt = styled.button(
   ({ color }) => css`
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     background-color: ${color};
     text-align: center;
     margin: 0 auto;
@@ -14,11 +14,15 @@ const StyledButt = styled.button(
     display: block;
     position: relative;
     width: 100px;
-    `,
+  `,
 );
 
-const Button = ({ label, color = "aquamarine" }) => {
-  return <StyledButt color={color}>{label}</StyledButt>;
+const Button = ({ label, color = "purple", onClick }) => {
+  return (
+    <StyledButt color={color} onClick={onClick}>
+      {label}
+    </StyledButt>
+  );
 };
 
 export default Button;
