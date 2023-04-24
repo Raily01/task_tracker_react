@@ -3,10 +3,9 @@ import "reset-css";
 import styled, { css } from "styled-components";
 
 const StyledButt = styled.button(
-  ({ color, onClick }) => css`
-    onClick=${onClick}
+  ({ color }) => css`
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     background-color: ${color};
     text-align: center;
     margin: 0 auto;
@@ -18,7 +17,7 @@ const StyledButt = styled.button(
   `,
 );
 
-const Button = ({ label, color = "aquamarine", onClick }) => {
+const Button = ({ label, color = "purple", onClick }) => {
   return (
     <StyledButt color={color} onClick={onClick}>
       {label}
