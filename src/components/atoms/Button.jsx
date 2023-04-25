@@ -14,6 +14,7 @@ const StyledButt = styled.button(
     display: block;
     position: relative;
     width: 100px;
+    border-radius: 8px;
   `,
 );
 
