@@ -1,9 +1,9 @@
 import { useMutation } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
-import destroyProject from "../../graphgl/mutations/destroy_projects";
-import projects from "../../graphgl/queries/projects";
+import createTask from "../../graphgl/mutations/create_tasks";
+import project from "../../graphgl/queries/project";
 
 export const modalStyles = {
   content: {
@@ -26,6 +26,10 @@ export const modalStyles = {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
   },
 };
+
+export const Input = styled.input`
+  margin: 5px;
+`;
 
 export const CloseButton = styled.span`
   position: absolute;
@@ -69,21 +73,25 @@ export const StyledTitle = styled.h1`
   color: black;
 `;
 
-export const useDestroyProject = (id) => {
-  // console.log("I WANT DESTROY IT SUCK MY BLACK DICK");
-  // console.log(id);
-  const [mutation, mutationState] = useMutation(destroyProject, {
-    refetchQueries: [{ query: projects }],
+export const useCreateTask = ({ title, description, deadlineAt, setIsOpen, setTitle, setDescription, projectId }) => {
+  const [mutation, mutationState] = useMutation(createTask, {
+    refetchQueries: [{ query: project, variables: { id: projectId } }],
     onCompleted: (data) => {
-      console.log(`Проект ${data?.destroyProject?.project?.name} удален!`);
+      setIsOpen(false);
+      setTitle("");
+      setDescription("");
+      console.log(`Задача ${data?.createTask?.task?.title} создана!`);
     },
   });
   const mutate = async () => {
-    const destroyProjectInput = {
-      id,
+    const createTaskInput = {
+      title,
+      description,
+      deadlineAt: new Date(deadlineAt).toISOString(),
+      projectId: Number(projectId),
     };
     try {
-      await mutation({ variables: { input: destroyProjectInput } });
+      await mutation({ variables: { input: createTaskInput } });
     } catch (error) {
       console.error(error);
     }
@@ -91,8 +99,19 @@ export const useDestroyProject = (id) => {
   return [mutate, mutationState];
 };
 
-const ModalWindow = ({ isOpen = false, setIsOpen = () => {}, id }) => {
-  const [destroyproject] = useDestroyProject(id);
+const ModalWindowCreateTask = ({ isOpen = false, setIsOpen = () => {}, projectId }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [deadlineAt, setDeadlineAt] = useState("");
+  const [createtask] = useCreateTask({
+    title,
+    description,
+    deadlineAt,
+    setIsOpen,
+    setTitle,
+    setDescription,
+    projectId,
+  });
   return (
     <Modal
       style={{
@@ -104,13 +123,18 @@ const ModalWindow = ({ isOpen = false, setIsOpen = () => {}, id }) => {
       onRequestClose={() => setIsOpen(false)}
     >
       <CloseButton onClick={() => setIsOpen(false)} />
-      <StyledTitle>Do you really want to destroy project?</StyledTitle>
+      <StyledTitle>Create Task</StyledTitle>
+      <div>
+        <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
+      </div>
+      <input type="text" value={description} onChange={(event) => setDescription(event.target.value)} />
+      <input type="datetime-local" value={deadlineAt} onChange={(event) => setDeadlineAt(event.target.value)} />
       <DontDestroyButton onClick={() => setIsOpen(false)}>No, I dont like it pls stop</DontDestroyButton>
-      <DestroyButton onClick={destroyproject}>DESTROY I SAID!!!</DestroyButton>
+      <DestroyButton onClick={createtask}>CREATE PLS PLS PLS!!!</DestroyButton>
     </Modal>
   );
 };
 
 Modal.setAppElement("body");
 
-export default ModalWindow;
+export default ModalWindowCreateTask;

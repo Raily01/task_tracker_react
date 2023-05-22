@@ -13,7 +13,8 @@ const StyledButt = styled.button(
     padding: 10px;
     display: block;
     position: relative;
-    width: 100px;
+    width: 130px;
+    height: 50px;
     border-radius: 8px;
   `,
 );

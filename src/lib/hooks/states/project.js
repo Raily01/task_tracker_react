@@ -1,16 +1,17 @@
 import { useQuery } from "@apollo/client";
-import projects from "../../../graphgl/queries/projects";
+import project from "../../../graphgl/queries/project";
 
-const useProjects = () => {
-  const { data, loading, error } = useQuery(projects, {
+const useProject = ({ projectId }) => {
+  const { data, loading, error } = useQuery(project, {
     fetchPolicy: "cache-and-network",
+    variables: { id: projectId },
   });
 
   return {
-    projects: data?.projects || [],
+    tasks: data?.project.tasks || [],
     loading,
     error,
   };
 };
 
-export default useProjects;
+export default useProject;

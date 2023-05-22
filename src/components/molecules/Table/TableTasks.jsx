@@ -2,9 +2,9 @@ import styled from "styled-components";
 import "reset-css";
 import { useState } from "react";
 import Button from "../../atoms/Button";
-import useProjects from "../../../lib/hooks/states/projects";
-import TableTr from "../../atoms/table_tr";
-import ModalWindowCreate from "../../atoms/ModalWindowCreate";
+import useProject from "../../../lib/hooks/states/project";
+import TableTrTasks from "../../atoms/table_tr_tasks";
+import ModalWindowCreateTask from "../../atoms/ModalCreateTask";
 
 const StyledTable = styled.table`
   top: 0;
@@ -33,8 +33,8 @@ const StyledThLast = styled.th`
   font-size: 28px;
 `;
 
-const Table = () => {
-  const { projects, loading } = useProjects();
+const Table = ({ projectId }) => {
+  const { tasks, loading } = useProject({ projectId });
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
   return (
     <>
@@ -44,18 +44,25 @@ const Table = () => {
             <tr>
               <StyledTh>Name</StyledTh>
               <StyledTh>Description</StyledTh>
-              <StyledTh>Created at</StyledTh>
-              <StyledTh>&nbsp;</StyledTh>
+              <StyledTh>Updated at</StyledTh>
+              <StyledTh>Deadline</StyledTh>
               <StyledTh>&nbsp;</StyledTh>
               <StyledTh>&nbsp;</StyledTh>
             </tr>
-            {projects.map(({ name, description, createdAt, id }) => (
-              <TableTr key={id} name={name} description={description} createdAt={createdAt} id={id} />
+            {tasks.map(({ title, description, updatedAt, deadlineAt, id }) => (
+              <TableTrTasks
+                key={id}
+                title={title}
+                description={description}
+                updatedAt={updatedAt}
+                deadlineAt={deadlineAt}
+                id={id}
+              />
             ))}
-            <ModalWindowCreate isOpen={isCreateModalOpen} setIsOpen={setCreateModalOpen} />
+            <ModalWindowCreateTask isOpen={isCreateModalOpen} setIsOpen={setCreateModalOpen} projectId={projectId} />
             <tr>
               <StyledThLast>
-                <Button label="Create project" onClick={() => setCreateModalOpen(true)} />
+                <Button label="Create task" onClick={() => setCreateModalOpen(true)} />
               </StyledThLast>
               <StyledThLast> </StyledThLast>
               <StyledThLast> </StyledThLast>
