@@ -103,6 +103,14 @@ const ModalWindowCreateTask = ({ isOpen = false, setIsOpen = () => {}, projectId
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [deadlineAt, setDeadlineAt] = useState("");
+  const now = new Date();
+  // Устанавливаем минимальное значение для input элемента
+  const year = now.getFullYear();
+  const month = (now.getMonth() + 1).toString().padStart(2, "0");
+  const day = now.getDate().toString().padStart(2, "0");
+  const hour = now.getHours().toString().padStart(2, "0");
+  const minute = now.getMinutes().toString().padStart(2, "0");
+  const minDateTime = `${year}-${month}-${day}T${hour}:${minute}`;
   const [createtask] = useCreateTask({
     title,
     description,
@@ -128,7 +136,13 @@ const ModalWindowCreateTask = ({ isOpen = false, setIsOpen = () => {}, projectId
         <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
       </div>
       <input type="text" value={description} onChange={(event) => setDescription(event.target.value)} />
-      <input type="datetime-local" value={deadlineAt} onChange={(event) => setDeadlineAt(event.target.value)} />
+      <input
+        type="datetime-local"
+        id="myDateTime"
+        value={deadlineAt}
+        onChange={(event) => setDeadlineAt(event.target.value)}
+        min={minDateTime}
+      />
       <DontDestroyButton onClick={() => setIsOpen(false)}>No, I dont like it pls stop</DontDestroyButton>
       <DestroyButton onClick={createtask}>CREATE PLS PLS PLS!!!</DestroyButton>
     </Modal>
