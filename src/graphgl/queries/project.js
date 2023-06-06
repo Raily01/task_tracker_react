@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export default gql`
-  query ($id: ID!) {
+  query Project($id: ID!) {
     project(id: $id) {
       id
       tasks {
