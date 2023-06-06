@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
-import destroyProject from "../../graphgl/mutations/destroy_projects";
+import createProject from "../../graphgl/mutations/create_projects";
 import projects from "../../graphgl/queries/projects";
 
 export const modalStyles = {
@@ -26,6 +26,10 @@ export const modalStyles = {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
   },
 };
+
+export const Input = styled.input`
+  margin: 5px;
+`;
 
 export const CloseButton = styled.span`
   position: absolute;
@@ -69,21 +73,23 @@ export const StyledTitle = styled.h1`
   color: black;
 `;
 
-export const useDestroyProject = (id) => {
-  // console.log("I WANT DESTROY IT SUCK MY BLACK DICK");
-  // console.log(id);
-  const [mutation, mutationState] = useMutation(destroyProject, {
+export const useCreateProject = ({ name, description, setIsOpen, setName, setDescription }) => {
+  const [mutation, mutationState] = useMutation(createProject, {
     refetchQueries: [{ query: projects }],
     onCompleted: (data) => {
-      console.log(`Проект ${data?.destroyProject?.project?.name} удален!`);
+      setIsOpen(false);
+      setName("");
+      setDescription("");
+      console.log(`Проект ${data?.createProject?.project?.name} создан!`);
     },
   });
   const mutate = async () => {
-    const destroyProjectInput = {
-      id,
+    const createProjectInput = {
+      name,
+      description,
     };
     try {
-      await mutation({ variables: { input: destroyProjectInput } });
+      await mutation({ variables: { input: createProjectInput } });
     } catch (error) {
       console.error(error);
     }
@@ -91,8 +97,10 @@ export const useDestroyProject = (id) => {
   return [mutate, mutationState];
 };
 
-const ModalWindow = ({ isOpen = false, setIsOpen = () => {}, id }) => {
-  const [destroyproject] = useDestroyProject(id);
+const ModalWindowCreate = ({ isOpen = false, setIsOpen = () => {} }) => {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [createproject] = useCreateProject({ name, description, setIsOpen, setName, setDescription });
   return (
     <Modal
       style={{
@@ -104,13 +112,15 @@ const ModalWindow = ({ isOpen = false, setIsOpen = () => {}, id }) => {
       onRequestClose={() => setIsOpen(false)}
     >
       <CloseButton onClick={() => setIsOpen(false)} />
-      <StyledTitle>Do you really want to destroy project?</StyledTitle>
+      <StyledTitle>Create Project</StyledTitle>
+      <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+      <input type="text" value={description} onChange={(event) => setDescription(event.target.value)} />
       <DontDestroyButton onClick={() => setIsOpen(false)}>No, I dont like it pls stop</DontDestroyButton>
-      <DestroyButton onClick={destroyproject}>DESTROY I SAID!!!</DestroyButton>
+      <DestroyButton onClick={createproject}>CREATE PLS PLS PLS!!!</DestroyButton>
     </Modal>
   );
 };
 
 Modal.setAppElement("body");
 
-export default ModalWindow;
+export default ModalWindowCreate;
